@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Vanilla Toon</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#fff9f4;color:#49346b;font-family:Arial,sans-serif}
+header{background:#eadcff;text-align:center;padding:28px 12px}
+h1{font-size:34px;margin:5px}
+header p{margin:8px}
+nav{display:flex;justify-content:center;gap:20px;padding:15px;background:#fff;position:sticky;top:0}
+nav a{color:#65459a;text-decoration:none;font-weight:bold}
+main{max-width:900px;margin:auto;padding:18px}
+.welcome{background:#f1e8ff;border-radius:20px;padding:25px;text-align:center}
+h2{margin-top:28px}
+.stories{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px}
+.story{background:white;border:1px solid #eadcff;border-radius:16px;overflow:hidden;padding-bottom:15px}
+.cover{height:150px;background:linear-gradient(140deg,#c7a5ff,#ffe1ed);display:flex;align-items:center;justify-content:center;font-size:45px}
+.story h3,.story p{margin:12px}
+button{background:#7651a8;color:white;border:0;border-radius:22px;padding:10px 18px;font-size:15px;cursor:pointer}
+.reader{display:none;background:white;padding:15px;border-radius:15px;line-height:1.8}
+.panel{min-height:210px;margin:12px 0;border-radius:12px;background:linear-gradient(#eadcff,#fff0f6);display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;font-size:22px}
+footer{text-align:center;padding:25px;color:#8a75a5}
+@media(min-width:650px){.stories{grid-template-columns:repeat(3,minmax(0,1fr))}.cover{height:210px}}
+</style>
+</head>
+<body>
+<header>
+<h1>✧ Vanilla Toon ✧</h1>
+<p>عالم من القصص والخيال 💜</p>
+</header>
+<nav>
+<a href="#home">الرئيسية</a>
+<a href="#library">مكتبة القصص</a>
+<a href="#about">عن الموقع</a>
+</nav>
+<main id="home">
+<section class="welcome">
+<h2>أهلًا بكِ في عالمنا!</h2>
+<p>اكتشفي قصصًا جديدة، وابدئي مغامرتكِ القادمة.</p>
+</section>
+<h2 id="library">📚 مكتبة الويبتون</h2>
+<div class="stories">
+<article class="story">
+<div class="cover">🌙✨</div>
+<h3>النهاية ستكون سعيدة</h3>
+<p>فانتازيا • مغامرة • كوميديا</p>
+<button onclick="readStory('happy')">قراءة القصة</button>
+</article>
+<article class="story">
+<div class="cover">🦋💜</div>
+<h3>Jelly is a Fairy Tale</h3>
+<p>حكايات خيالية ومغامرات</p>
+<button onclick="readStory('jelly')">قراءة القصة</button>
+</article>
+<article class="story">
+<div class="cover">🏰🌸</div>
+<h3>قصتي القادمة</h3>
+<p>قريبًا في مكتبتنا</p>
+<button onclick="readStory('coming')">التفاصيل</button>
+</article>
+</div>
+<section id="reader" class="reader">
+<h2 id="readerTitle">قارئ الويبتون</h2>
+<p>مثال توضيحي لطريقة عرض الفصل عموديًا:</p>
+<div class="panel">🌌<br>في عالم بعيد، بدأت حكاية جديدة...</div>
+<div class="panel">🏰<br>كان القصر يخفي سرًا غامضًا.</div>
+<div class="panel">✨<br>وهكذا بدأت المغامرة!</div>
+<button onclick="document.getElementById('reader').style.display='none'">إغلاق الفصل</button>
+</section>
+<section id="about">
+<h2>عن Vanilla Toon</h2>
+<p>مساحة محبة للقصص المصورة والخيال والإبداع.</p>
+</section>
+</main>
+<footer>صُنع بحب 💜 Vanilla Toon</footer>
+<script>
+function readStory(type){
+const r=document.getElementById('reader');
+document.getElementById('readerTitle').textContent=
+type==='happy'?'النهاية ستكون سعيدة':type==='jelly'?'Jelly is a Fairy Tale':'قريبًا';
+r.style.display='block';
+r.scrollIntoView({behavior:'smooth'});
+}
+</script>
+</body>
+</html>
